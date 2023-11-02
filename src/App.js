@@ -1,9 +1,20 @@
+import React, { useState } from 'react';
+import Home from './Home';
+import Filter from './Filter';
+import Result from './Result';
 
 function App() {
+  const [currentView, setCurrentView] = useState('home');
+
+  const changeView = (view) => {
+    setCurrentView(view)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
+      {currentView === 'settings' && <Filter />}
+      {currentView === 'profile' && <Result />}
     </div>
   );
 }
