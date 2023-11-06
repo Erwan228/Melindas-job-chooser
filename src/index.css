@@ -16,6 +16,16 @@ code {
   font-size: large;
 }
 
+.bottomButton{
+  height: 250px;
+  width: 250px;
+  font-size: x-large;
+}
+
+.filter {
+  background: #313131;
+}
+
 /*Kopiert inn fra originalt prosjekt*/
 body {
   user-select: none;
