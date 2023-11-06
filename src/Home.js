@@ -5,9 +5,7 @@ const Home = ({ changeView, currentView }) => {
         <div className="home">
             <button className="topButton">Filter</button>
             <h1>Choose a random FFXIV job!</h1>
-            <div>
-                <button className="jobButton" onClick={() => changeView('result')}>Find a job</button>
-            </div>
+            <button className="jobButton" onClick={() => changeView('result')}>Find a job</button>
         </div>
     )
 }
