@@ -1,3 +1,6 @@
+import { useState } from "react";
+import React from "react";
+
 const Filter = ({ changeView, currentView, jobs }) => {
     const tankFilter = () => { };
     const healerFilter = () => { };
@@ -7,6 +10,25 @@ const Filter = ({ changeView, currentView, jobs }) => {
     const meleeFilter = () => { };
     const rangeFilter = () => { };
     const magicFilter = () => { };
+
+    const tankJobs = jobs.filter(job => job.role === 'tank')
+    const healerJobs = jobs.filter(job => job.role === 'healer')
+    const regenJobs = jobs.filter(job => job.sub_role === 'regenerative')
+    const barrierJobs = jobs.filter(job => job.sub_role === 'protective')
+    const DPSJobs = jobs.filter(job => job.role === 'DPS')
+    const meleeJobs = jobs.filter(job => job.sub_role === 'melee')
+    const rangeJobs = jobs.filter(job => job.sub_role === 'physicalrange')
+    const magicJobs = jobs.filter(job => job.sub_role === 'magicrange')
+    console.log(
+        'Tanks' + JSON.stringify(tankJobs),
+        'Healers' + JSON.stringify(healerJobs),
+        'DPS' + JSON.stringify(DPSJobs),
+        'Regen' + JSON.stringify(regenJobs),
+        'Barrier' + JSON.stringify(barrierJobs),
+        'Melee' + JSON.stringify(meleeJobs),
+        'Range' + JSON.stringify(rangeJobs),
+        'Magic' + JSON.stringify(magicJobs),
+    )
 
     return (
         <div className="filter">
@@ -24,42 +46,13 @@ const Filter = ({ changeView, currentView, jobs }) => {
             <button className="magicButton DPSButton biggerButton" onClick={magicFilter}>Tank</button>
             <div className="checks">
                 <div className="tanks">
-                    <input type="checkbox" checked></input><label>{jobs[0].jobName}</label>
-                    <input type="checkbox" checked></input><label>{jobs[1].jobName}</label>
-                    <input type="checkbox" checked></input><label>{jobs[2].jobName}</label>
-                    <input type="checkbox" checked></input><label>{jobs[3].jobName}</label>
+                    {tankJobs.map((job, index) => (
+                        <li key={index}>   <div><input type="checkBox" ></input>{job.jobName} </div></li>
+                    ))}
                 </div>
-                <div className="DPS">
-                    <div className="melee">
-                        <input type="checkbox" checked></input><label>{jobs[4].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[5].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[6].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[7].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[8].jobName}</label>
-                    </div>
-                    <div className="range">
-                        <input type="checkbox" checked></input><label>{jobs[9].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[10].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[11].jobName}</label>
-                    </div>
-                    <div className="magic">
-                        <input type="checkbox" checked></input><label>{jobs[12].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[13].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[14].jobName}</label>
-                    </div>
-                </div>
-                <div className="healer">
-                    <div className="regen">
-                        <input type="checkbox" checked></input><label>{jobs[15].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[16].jobName}</label>
-                    </div>
-                    <div className="barrier">
-                        <input type="checkbox" checked></input><label>{jobs[17].jobName}</label>
-                        <input type="checkbox" checked></input><label>{jobs[18].jobName}</label>
-                    </div>
-                </div>
+
             </div>
-        </div>
+        </div >
     )
 }
 
