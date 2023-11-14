@@ -26,6 +26,12 @@ code {
   background: #313131;
 }
 
+ul {
+  list-style-type: none;
+  margin: -5px;
+  padding: 0;
+}
+
 /*Kopiert inn fra originalt prosjekt*/
 body {
   user-select: none;
@@ -84,28 +90,34 @@ button {
 @media only screen and (min-width: 600px) {
 
 
-  #tanks {
+  .tanks {
       display: flex;
+      margin-bottom: 10px;
   }
 
-  #melee {
+  .melee {
       display: flex;
+      margin-bottom: 10px;
   }
 
-  #range {
+  .range {
       display: flex;
+      margin-bottom: 10px;
   }
 
-  #magic {
+  .magic {
       display: flex;
+      margin-bottom: 10px;
   }
 
-  #regen {
+  .regen {
       display: flex;
+      margin-bottom: 10px;
   }
 
-  #barrier {
+  .barrier {
       display: flex;
+      margin-bottom: 10px;
   }
 }
 
