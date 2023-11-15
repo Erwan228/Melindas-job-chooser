@@ -72,7 +72,7 @@ button {
   font-size: large;
 }
 
-#Checks {
+.Checks {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

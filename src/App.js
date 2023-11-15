@@ -6,6 +6,7 @@ import Result from './Result';
 function App() {
   const [currentView, setCurrentView] = useState('home');
 
+  const [filer, setFilter] = useState('')
   const changeView = (view) => {
     setCurrentView(view)
   }
@@ -54,7 +55,7 @@ function App() {
   return (
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
-      {currentView === 'filter' && <Filter changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
+      {currentView === 'filter' && <Filter onFilterData={handleFilterData} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
       {currentView === 'result' && <Result />}
     </div>
   );

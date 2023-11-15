@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-const Filter = ({ changeView, currentView, jobs }) => {
+const Filter = ({ changeView, currentView, jobs, handleFilterData }) => {
     const tankFilter = () => { };
     const healerFilter = () => { };
     const regenFilter = () => { };
@@ -19,16 +19,7 @@ const Filter = ({ changeView, currentView, jobs }) => {
     const meleeJobs = jobs.filter(job => job.sub_role === 'melee')
     const rangeJobs = jobs.filter(job => job.sub_role === 'physicalrange')
     const magicJobs = jobs.filter(job => job.sub_role === 'magicrange')
-    console.log(
-        'Tanks' + JSON.stringify(tankJobs),
-        'Healers' + JSON.stringify(healerJobs),
-        'DPS' + JSON.stringify(DPSJobs),
-        'Regen' + JSON.stringify(regenJobs),
-        'Barrier' + JSON.stringify(barrierJobs),
-        'Melee' + JSON.stringify(meleeJobs),
-        'Range' + JSON.stringify(rangeJobs),
-        'Magic' + JSON.stringify(magicJobs),
-    )
+
 
     return (
         <div className="filter">
@@ -48,7 +39,7 @@ const Filter = ({ changeView, currentView, jobs }) => {
             <button className="biggerButton" onClick="toggleFilter()">Toggle all on/off</button>
             <hr />
             <h2>Check off the jobs individually</h2>
-            <ul className="checks">
+            <ul className="Checks">
                 <div className="tanks">
                     {tankJobs.map((job, index) => (
                         <span key={index}><div>
@@ -56,6 +47,7 @@ const Filter = ({ changeView, currentView, jobs }) => {
                         </div></span>
                     ))}
                 </div>
+                <br />
                 <br />
                 <div className="DPS">
                     <div className="melee">
@@ -81,10 +73,12 @@ const Filter = ({ changeView, currentView, jobs }) => {
                             </div></span>
                         ))}
                     </div>
+                    <br />
                 </div>
+                <br />
                 <div className="healer">
                     <div className="regen">
-                        {healerJobs.map((job, index) => (
+                        {regenJobs.map((job, index) => (
                             <span key={index}><div>
                                 <input type="checkBox"></input>{job.jobName}
                             </div></span>
@@ -98,6 +92,7 @@ const Filter = ({ changeView, currentView, jobs }) => {
                             </div></span>
                         ))}
                     </div>
+                    <br />
                 </div>
             </ul>
         </div >
