@@ -10,6 +10,40 @@ function App() {
   const changeView = (view) => {
     setCurrentView(view)
   }
+  const handleFilterData = (choice) => {
+    if (choice === 'tank') filterTank()
+    if (choice === 'healer') filterHealer()
+    if (choice === 'DPS') filterDPS()
+    if (choice === 'regen') filterRegen()
+    if (choice === 'barrier') filterBarrier()
+    if (choice === 'melee') filterMelee()
+    if (choice === 'range') filterRange()
+    if (choice === 'magic') filterMagic()
+  }
+
+  const filterTank = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].role !== 'tank') {
+          jobs[i].checked = false;
+        }
+        filteredByJobs();
+      }
+    }
+  }
+  const filterHealer = () => { }
+  const filterDPS = () => { }
+  const filterRegen = () => { }
+  const filterBarrier = () => { }
+  const filterMelee = () => { }
+  const filterRange = () => { }
+  const filterMagic = () => { }
+
+  const filteredByJobs = () => {
+    for (let i = 0; i < jobs.length; i++) {
+      if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+    }
+  }
 
   const jobs = [
     { jobName: "Paladin", role: "tank", color: 'blue', checked: true, info: "Paladin is a defensive job, that can protect its allies. Together with its sword and shield,it also possesses both offensive and healing magic." },
