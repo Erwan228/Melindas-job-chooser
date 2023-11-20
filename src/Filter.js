@@ -1,15 +1,15 @@
 import { useState } from "react";
 import React from "react";
 
-const Filter = ({ changeView, currentView, jobs, handleFilterData }) => {
-    const tankFilter = () => { };
-    const healerFilter = () => { };
-    const regenFilter = () => { };
-    const barrierFilter = () => { };
-    const DPSFilter = () => { };
-    const meleeFilter = () => { };
-    const rangeFilter = () => { };
-    const magicFilter = () => { };
+const Filter = ({ changeView, currentView, jobs, handleFilterData, }) => {
+    const tankFilter = () => { handleFilterData('tank') };
+    const healerFilter = () => { handleFilterData('healer') };
+    const regenFilter = () => { handleFilterData('regen') };
+    const barrierFilter = () => { handleFilterData('barrier') };
+    const DPSFilter = () => { handleFilterData('DPS') };
+    const meleeFilter = () => { handleFilterData('melee') };
+    const rangeFilter = () => { handleFilterData('range') };
+    const magicFilter = () => { handleFilterData('magic') };
 
     const tankJobs = jobs.filter(job => job.role === 'tank')
     const healerJobs = jobs.filter(job => job.role === 'healer')

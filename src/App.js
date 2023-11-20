@@ -11,6 +11,7 @@ function App() {
     setCurrentView(view)
   }
   const handleFilterData = (choice) => {
+    console.log(choice)
     if (choice === 'tank') filterTank()
     if (choice === 'healer') filterHealer()
     if (choice === 'DPS') filterDPS()
@@ -89,7 +90,7 @@ function App() {
   return (
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
-      {currentView === 'filter' && <Filter onFilterData={handleFilterData} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
+      {currentView === 'filter' && <Filter handleFilterData={handleFilterData} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
       {currentView === 'result' && <Result />}
     </div>
   );
