@@ -28,9 +28,10 @@ function App() {
         if (jobs[i].role !== 'tank') {
           jobs[i].checked = false;
         }
-        filteredByJobs();
       }
     }
+    filteredByJobs();
+    console.log(filteredJobs)
   }
   const filterHealer = () => { }
   const filterDPS = () => { }
