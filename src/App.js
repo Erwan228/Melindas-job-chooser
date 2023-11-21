@@ -10,6 +10,7 @@ function App() {
   const changeView = (view) => {
     setCurrentView(view)
   }
+  /*Filter functions*/
   const handleFilterData = (choice) => {
     console.log(choice)
     if (choice === 'tank') filterTank()
@@ -33,18 +34,104 @@ function App() {
     filteredByJobs();
     console.log(filteredJobs)
   }
-  const filterHealer = () => { }
-  const filterDPS = () => { }
-  const filterRegen = () => { }
-  const filterBarrier = () => { }
-  const filterMelee = () => { }
-  const filterRange = () => { }
-  const filterMagic = () => { }
+
+  const filterHealer = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].role !== 'healer') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs)
+  }
+
+  const filterDPS = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].role !== 'DPS') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs);
+  }
+
+  const filterRegen = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role !== 'regen') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs);
+  }
+
+  const filterBarrier = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role !== 'barrier') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs);
+  }
+
+  const filterMelee = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role !== 'melee') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs);
+  }
+
+  const filterRange = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role !== 'range') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log(filteredJobs);
+  }
+
+  const filterMagic = () => {
+    if (filteredJobs.length === 19) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role !== 'magic') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    filteredByJobs();
+    console.log()
+  }
 
   const filteredByJobs = () => {
+    filteredJobs = [];
     for (let i = 0; i < jobs.length; i++) {
       if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
     }
+  }
+
+  /*filter function for programmer*/
+  const toggleAllOn = () => {
+    for (let i = 0; i < jobs.length; i++) {
+      jobs[i].checked = true;
+    }
+    filteredByJobs();
   }
 
   const jobs = [
@@ -63,10 +150,10 @@ function App() {
     { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Wielding both black and white magic with ease. Build up your reservoires of red magic by alternating between which spells you use, and unleash it with your rapier. Red mages are very versatile." },
     { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Using the void as a source for their powers, the black mage delivers devastating attacks with fire, and replenish their mana with ice spells. The black mage is not very mobile, but hits HARD." },
     { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Channeling the essence of Ifrit, Garuda and Titan, the summoner can command the primals' powers to fight their enemies. To play summoner does not require much input and is easy job to play." },
-    { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', checked: true, info: "The white mage is the most potent healer, using a cane and the elements of the forest. White mages have the ability to use regenerative healing." },
-    { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', checked: true, info: "By reading the stars and using their powers, astrologians can heal their allies with regenerative effects. They also have a deck of tarot cards which they can use to buff other allies with." },
-    { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
-    { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', checked: true, info: "Masters of knowledge, the sage heals, protects and attacks with great effiency. The sage can cast barriers on their allies, and launch a stronger attack when that barrier breaks." },
+    { jobName: "White mage", role: "healer", sub_role: "regen", color: 'green', checked: true, info: "The white mage is the most potent healer, using a cane and the elements of the forest. White mages have the ability to use regenerative healing." },
+    { jobName: "Astrologian", role: "healer", sub_role: "regen", color: 'green', checked: true, info: "By reading the stars and using their powers, astrologians can heal their allies with regenerative effects. They also have a deck of tarot cards which they can use to buff other allies with." },
+    { jobName: "Scholar", role: "healer", sub_role: "barrier", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
+    { jobName: "Sage", role: "healer", sub_role: "barrier", color: 'green', checked: true, info: "Masters of knowledge, the sage heals, protects and attacks with great effiency. The sage can cast barriers on their allies, and launch a stronger attack when that barrier breaks." },
   ];
   let jobNumber = null;
   let checkContent = [];
@@ -91,7 +178,7 @@ function App() {
   return (
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
-      {currentView === 'filter' && <Filter handleFilterData={handleFilterData} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
+      {currentView === 'filter' && <Filter handleFilterData={handleFilterData} shoutToggleAllOn={toggleAllOn} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
       {currentView === 'result' && <Result />}
     </div>
   );

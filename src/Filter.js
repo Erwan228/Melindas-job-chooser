@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-const Filter = ({ changeView, currentView, jobs, handleFilterData, }) => {
+const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAllOn }) => {
     const tankFilter = () => { handleFilterData('tank') };
     const healerFilter = () => { handleFilterData('healer') };
     const regenFilter = () => { handleFilterData('regen') };
@@ -13,12 +13,14 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, }) => {
 
     const tankJobs = jobs.filter(job => job.role === 'tank')
     const healerJobs = jobs.filter(job => job.role === 'healer')
-    const regenJobs = jobs.filter(job => job.sub_role === 'regenerative')
-    const barrierJobs = jobs.filter(job => job.sub_role === 'protective')
+    const regenJobs = jobs.filter(job => job.sub_role === 'regen')
+    const barrierJobs = jobs.filter(job => job.sub_role === 'barrier')
     const DPSJobs = jobs.filter(job => job.role === 'DPS')
     const meleeJobs = jobs.filter(job => job.sub_role === 'melee')
     const rangeJobs = jobs.filter(job => job.sub_role === 'physicalrange')
     const magicJobs = jobs.filter(job => job.sub_role === 'magicrange')
+
+    const toggleAllOn = () => { shoutToggleAllOn() }
 
 
     return (
@@ -36,7 +38,7 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, }) => {
             <button className="rangeButton DPSButton biggerButton" onClick={rangeFilter}>Range</button>
             <button className="magicButton DPSButton biggerButton" onClick={magicFilter}>Magic</button>
             <hr />
-            <button className="biggerButton" onClick="toggleFilter()">Toggle all on/off</button>
+            <button className="biggerButton" onClick={toggleAllOn()}>Toggle all on/off</button>
             <hr />
             <h2>Check off the jobs individually</h2>
             <ul className="Checks">
