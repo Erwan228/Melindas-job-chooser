@@ -38,7 +38,7 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAl
             <button className="rangeButton DPSButton biggerButton" onClick={rangeFilter}>Range</button>
             <button className="magicButton DPSButton biggerButton" onClick={magicFilter}>Magic</button>
             <hr />
-            <button className="biggerButton" onClick={toggleAllOn()}>Toggle all on/off</button>
+            <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on/off</button>
             <hr />
             <h2>Check off the jobs individually</h2>
             <ul className="Checks">
