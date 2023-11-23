@@ -116,7 +116,7 @@ function App() {
       }
     }
     filteredByJobs();
-    console.log()
+    console.log(filteredJobs)
   }
 
   const filteredByJobs = () => {
@@ -146,12 +146,12 @@ function App() {
     { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', checked: true, info: "Performs different combos to amass power to be unleahed in high damage attacks by using their katana." },
     { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', checked: true, info: "The absolute melee DPS, the monk attacks rapidly with their punches and kicks from all directions. Amassing their chakra to unleash powerfull attacks." },
     { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', checked: true, info: "The dragoon uses a lance and jumping attacks to pierce their enemies. They also apply the dragons' own powers in battle." },
-    { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, info: "The bard attacks by using a bow with differnt type of arrows, some to do direct damage, and others to do damage over time. They also support their allies with inspiring music on the battlefield." },
-    { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, info: "With a gun in hand the machinist takes down their enemies from a distance with bullets and machinery." },
-    { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, info: "Buff your party and/or your dance partner with high spirited dances." },
-    { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Wielding both black and white magic with ease. Build up your reservoires of red magic by alternating between which spells you use, and unleash it with your rapier. Red mages are very versatile." },
-    { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Using the void as a source for their powers, the black mage delivers devastating attacks with fire, and replenish their mana with ice spells. The black mage is not very mobile, but hits HARD." },
-    { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Channeling the essence of Ifrit, Garuda and Titan, the summoner can command the primals' powers to fight their enemies. To play summoner does not require much input and is easy job to play." },
+    { jobName: "Bard", role: "DPS", sub_role: "range", color: 'red', checked: true, info: "The bard attacks by using a bow with differnt type of arrows, some to do direct damage, and others to do damage over time. They also support their allies with inspiring music on the battlefield." },
+    { jobName: "Machinist", role: "DPS", sub_role: "range", color: 'red', checked: true, info: "With a gun in hand the machinist takes down their enemies from a distance with bullets and machinery." },
+    { jobName: "Dancer", role: "DPS", sub_role: "range", color: 'red', checked: true, info: "Buff your party and/or your dance partner with high spirited dances." },
+    { jobName: "Red mage", role: "DPS", sub_role: "magic", color: 'red', checked: true, info: "Wielding both black and white magic with ease. Build up your reservoires of red magic by alternating between which spells you use, and unleash it with your rapier. Red mages are very versatile." },
+    { jobName: "Black mage", role: "DPS", sub_role: "magic", color: 'red', checked: true, info: "Using the void as a source for their powers, the black mage delivers devastating attacks with fire, and replenish their mana with ice spells. The black mage is not very mobile, but hits HARD." },
+    { jobName: "Summoner", role: "DPS", sub_role: "magic", color: 'red', checked: true, info: "Channeling the essence of Ifrit, Garuda and Titan, the summoner can command the primals' powers to fight their enemies. To play summoner does not require much input and is easy job to play." },
     { jobName: "White mage", role: "healer", sub_role: "regen", color: 'green', checked: true, info: "The white mage is the most potent healer, using a cane and the elements of the forest. White mages have the ability to use regenerative healing." },
     { jobName: "Astrologian", role: "healer", sub_role: "regen", color: 'green', checked: true, info: "By reading the stars and using their powers, astrologians can heal their allies with regenerative effects. They also have a deck of tarot cards which they can use to buff other allies with." },
     { jobName: "Scholar", role: "healer", sub_role: "barrier", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
