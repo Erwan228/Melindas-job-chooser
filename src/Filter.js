@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAllOn }) => {
+const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAllOn, shoutToggleAllOff, filteredJobs }) => {
     const tankFilter = () => { handleFilterData('tank') };
     const healerFilter = () => { handleFilterData('healer') };
     const regenFilter = () => { handleFilterData('regen') };
@@ -17,10 +17,11 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAl
     const barrierJobs = jobs.filter(job => job.sub_role === 'barrier')
     const DPSJobs = jobs.filter(job => job.role === 'DPS')
     const meleeJobs = jobs.filter(job => job.sub_role === 'melee')
-    const rangeJobs = jobs.filter(job => job.sub_role === 'physicalrange')
-    const magicJobs = jobs.filter(job => job.sub_role === 'magicrange')
+    const rangeJobs = jobs.filter(job => job.sub_role === 'range')
+    const magicJobs = jobs.filter(job => job.sub_role === 'magic')
 
     const toggleAllOn = () => { shoutToggleAllOn() }
+    const toggleAllOff = () => { shoutToggleAllOff() }
 
 
     return (
@@ -38,7 +39,9 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAl
             <button className="rangeButton DPSButton biggerButton" onClick={rangeFilter}>Range</button>
             <button className="magicButton DPSButton biggerButton" onClick={magicFilter}>Magic</button>
             <hr />
-            <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on/off</button>
+            {/* <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on/off</button> */}
+            {filteredJobs.length === 0 && <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on</button>}
+            {filteredJobs.length > 0 && <button className="biggerButton" onClick={() => toggleAllOff()}>Toggle all off</button>}
             <hr />
             <h2>Check off the jobs individually</h2>
             <ul className="Checks">

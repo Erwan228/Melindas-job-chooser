@@ -126,7 +126,7 @@ function App() {
     }
   }
 
-  /*filter function for programmer*/
+  /*filter function for all toggling*/
   const toggleAllOn = () => {
     console.log('toggle all on pressed')
     for (let i = 0; i < jobs.length; i++) {
@@ -134,6 +134,15 @@ function App() {
     }
     filteredByJobs();
     console.log('this function done')
+  }
+
+  const toggleAllOff = () => {
+    console.log('toggle all off pressed')
+    for (let i = 0; i < jobs.length; i++) {
+      jobs[i].checked = false;
+    }
+    filteredByJobs();
+    console.log('this function did')
   }
 
   let jobs = [
@@ -180,7 +189,7 @@ function App() {
   return (
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
-      {currentView === 'filter' && <Filter handleFilterData={handleFilterData} shoutToggleAllOn={toggleAllOn} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
+      {currentView === 'filter' && <Filter handleFilterData={handleFilterData} shoutToggleAllOn={toggleAllOn} shoutToggleAllOff={toggleAllOff} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
       {currentView === 'result' && <Result />}
     </div>
   );
