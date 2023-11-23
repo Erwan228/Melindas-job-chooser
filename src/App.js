@@ -134,7 +134,7 @@ function App() {
     filteredByJobs();
   }
 
-  const jobs = [
+  let jobs = [
     { jobName: "Paladin", role: "tank", color: 'blue', checked: true, info: "Paladin is a defensive job, that can protect its allies. Together with its sword and shield,it also possesses both offensive and healing magic." },
     { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, info: "With its gunblade, the gunbreaker can unleash powerfull explosive attacks and combos by collecting cartridges from its standard combo" },
     { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, info: "Dark knight uses a two-handed great sword and dark magic to inflict damage on their enemies and defend themselves and their allies." },
