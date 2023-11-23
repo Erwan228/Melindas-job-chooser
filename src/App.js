@@ -128,10 +128,12 @@ function App() {
 
   /*filter function for programmer*/
   const toggleAllOn = () => {
+    console.log('toggle all on pressed')
     for (let i = 0; i < jobs.length; i++) {
       jobs[i].checked = true;
     }
     filteredByJobs();
+    console.log('this function done')
   }
 
   let jobs = [
