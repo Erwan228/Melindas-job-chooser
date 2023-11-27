@@ -41,7 +41,7 @@ const Filter = ({ changeView, currentView, jobs, handleFilterData, shoutToggleAl
             <hr />
             {/* <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on/off</button> */}
             {filteredJobs.length === 0 && <button className="biggerButton" onClick={() => toggleAllOn()}>Toggle all on</button>}
-            {filteredJobs.length > 0 && <button className="biggerButton" onClick={() => toggleAllOff()}>Toggle all off</button>}
+            {filteredJobs.length >= 1 && <button className="biggerButton" onClick={() => toggleAllOff()}>Toggle all off</button>}
             <hr />
             <h2>Check off the jobs individually</h2>
             <ul className="Checks">
