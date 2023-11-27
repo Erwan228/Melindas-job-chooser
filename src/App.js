@@ -133,16 +133,19 @@ function App() {
       jobs[i].checked = true;
     }
     filteredByJobs();
-    console.log('this function done')
+    console.log('this function done');
+    console.log(filteredJobs);
   }
 
   const toggleAllOff = () => {
     console.log('toggle all off pressed')
+    console.log(filteredJobs);
     for (let i = 0; i < jobs.length; i++) {
       jobs[i].checked = false;
     }
     filteredByJobs();
-    console.log('this function did')
+    console.log('this function did');
+    console.log(filteredJobs);
   }
 
   let jobs = [
@@ -168,7 +171,7 @@ function App() {
   ];
   let jobNumber = null;
   let checkContent = [];
-  let filteredJobs = jobs;
+  const [filteredJobs, setFilteredJobs] = useState(jobs); /*prøv å sette opp en funksjon ved bruk av use state, en lagringsvariabel ( som blir oppdatert via funksjonen, og så setFilteredJobs for å ta fra lagringsvariablen inn i filteredJobs)*/
   let ofon = null;
   let msg = [
     'Go for',
