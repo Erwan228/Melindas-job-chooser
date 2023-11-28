@@ -120,10 +120,11 @@ function App() {
   }
 
   const filteredByJobs = () => {
-    filteredJobs = [];
+    filteredJobsTemp = [];
     for (let i = 0; i < jobs.length; i++) {
-      if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+      if (jobs[i].checked === true) { filteredJobsTemp.push(jobs[i]) }
     }
+    setFilteredJobs(filteredJobsTemp);
   }
 
   /*filter function for all toggling*/
@@ -188,6 +189,7 @@ function App() {
   ];
   let previousMsg = null;
   let displayMsg = null;
+  let filteredJobsTemp = [];
 
   return (
     <div className="App">
