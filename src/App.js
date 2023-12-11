@@ -208,6 +208,20 @@ function App() {
         }
       }
     }
+    else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'melee') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    else {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'melee') {
+          jobs[i].checked = true;
+        }
+      }
+    }
     filteredByJobs();
     console.log(filteredJobs);
   }
@@ -220,6 +234,20 @@ function App() {
         }
       }
     }
+    else if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'range') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    else {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'range') {
+          jobs[i].checked = true;
+        }
+      }
+    }
     filteredByJobs();
     console.log(filteredJobs);
   }
@@ -229,6 +257,20 @@ function App() {
       for (let i = 0; i < jobs.length; i++) {
         if (jobs[i].sub_role !== 'magic') {
           jobs[i].checked = false;
+        }
+      }
+    }
+    else if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'magic') {
+          jobs[i].checked = false;
+        }
+      }
+    }
+    else {
+      for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].sub_role === 'magic') {
+          jobs[i].checked = true;
         }
       }
     }
@@ -274,7 +316,7 @@ function App() {
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
       {currentView === 'filter' && <Filter handleFilterData={handleFilterData} shoutToggleAllOn={toggleAllOn} shoutToggleAllOff={toggleAllOff} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
-      {currentView === 'result' && <Result />}
+      {currentView === 'result' && <Result changeView={changeView} msg={msg} />}
     </div>
   );
 

@@ -32,6 +32,12 @@ ul {
   padding: 0;
 }
 
+.upperResButton{
+  height: 75px;
+  width: 100px;
+  font-size: large;
+}
+
 /*Kopiert inn fra originalt prosjekt*/
 body {
   user-select: none;
