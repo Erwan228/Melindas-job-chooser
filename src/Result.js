@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 const Result = ({ changeView, msg }) => {
     const [previousMsg, setPreviousMsg] = useState(null)
     const [displayMsg, setDisplayMsg] = useState(null)
+    const newJob = () => {
+        makeMessage();
+    }
     const makeMessage = () => {
         setPreviousMsg(displayMsg);
         if (!previousMsg) {
@@ -16,15 +19,15 @@ const Result = ({ changeView, msg }) => {
     }
 
     useEffect(() => {
-        makeMessage()
+        newJob()
     }, []);
     return (
         <div className="Result">
             <button className="upperResButton">Filter</button> <p className="rndMsgP">{displayMsg}</p>
-            <h1>that in terms of</h1>
-            <br /><p className="resultInfoP">male human and </p>
+            <h1></h1>
+            <br /><p className="resultInfoP"></p>
             <div>
-                <button className="jobButton" onClick={makeMessage}>female pokemon</button>
+                <button className="jobButton" onClick={newJob}>Another job</button>
             </div>
         </div>
     )

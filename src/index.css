@@ -87,6 +87,9 @@ button {
 .jobButton {
   position: absolute;
   top: 400px;
+  height: 250px; 
+  width: 250px; 
+  font-size: x-large;
 }
 
 .chosenCategory {
