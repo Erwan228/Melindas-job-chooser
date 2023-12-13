@@ -316,7 +316,7 @@ function App() {
     <div className="App">
       {currentView === 'home' && <Home changeView={changeView} currentView={currentView} />}
       {currentView === 'filter' && <Filter handleFilterData={handleFilterData} shoutToggleAllOn={toggleAllOn} shoutToggleAllOff={toggleAllOff} changeView={changeView} currentView={currentView} jobs={jobs} filteredJobs={filteredJobs} />}
-      {currentView === 'result' && <Result changeView={changeView} msg={msg} />}
+      {currentView === 'result' && <Result changeView={changeView} msg={msg} filteredJobs={filteredJobs} />}
     </div>
   );
 

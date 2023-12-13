@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 
-const Result = ({ changeView, msg }) => {
+const Result = ({ changeView, msg, filteredJobs }) => {
+    const [jobNumber, setJobNumber] = useState(null)
     const [previousMsg, setPreviousMsg] = useState(null)
     const [displayMsg, setDisplayMsg] = useState(null)
     const newJob = () => {
         makeMessage();
+        chooseJob();
     }
     const makeMessage = () => {
         setPreviousMsg(displayMsg);
@@ -18,13 +20,18 @@ const Result = ({ changeView, msg }) => {
         }
     }
 
+    const chooseJob = () => {
+        setJobNumber(Math.floor(Math.random() * filteredJobs.length));
+
+    }
+
     useEffect(() => {
         newJob()
     }, []);
     return (
         <div className="Result">
-            <button className="upperResButton">Filter</button> <p className="rndMsgP">{displayMsg}</p>
-            <h1></h1>
+            <button className="upperResButton" onClick={() => changeView('filter')}>Filter</button> <p className="rndMsgP">{displayMsg}</p>
+            <h1>{filteredJobs[jobNumber].title}</h1>
             <br /><p className="resultInfoP"></p>
             <div>
                 <button className="jobButton" onClick={newJob}>Another job</button>
