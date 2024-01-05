@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Result = ({ changeView, msg, filteredJobs }) => {
     const Jobs = filteredJobs
-    const [jobNumber, setJobNumber] = useState(null)
+    const [jobNumber, setJobNumber] = useState(17)
     const [previousMsg, setPreviousMsg] = useState(null)
     const [displayMsg, setDisplayMsg] = useState(null)
     const newJob = () => {
@@ -32,7 +32,7 @@ const Result = ({ changeView, msg, filteredJobs }) => {
     return (
         <div className="Result" style={{
             background: Jobs[jobNumber].color,
-            height: 100
+            height: 1000
         }}>
             <button className="upperResButton" onClick={() => changeView('filter')}>Filter</button> <p className="rndMsgP">{displayMsg}</p>
             <h1>{Jobs && Jobs[jobNumber] && Jobs[jobNumber].jobName}</h1>
