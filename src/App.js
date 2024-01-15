@@ -67,32 +67,66 @@ function App() {
   }
 
   const filterTank = () => {
-    /*easy write, if all is on*/
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role !== 'tank') {
-          jobs[i].checked = false;
+    /*chat gpt idea*/
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+
+      // The logic to update the jobs array based on the tank filter
+      if (filteredJobs.length === 19) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role !== 'tank') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs; // Return the updated state
+      }
+      else if (updatedJobs[0].checked && updatedJobs[1].checked && updatedJobs[2].checked && updatedJobs[3].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role === 'tank') {
+            updatedJobs[i].checked = false;
+          }
         }
       }
-    }
-    /*if all the tank jobs are on*/
-    else if (jobs[0].checked && jobs[1].checked && jobs[2].checked && jobs[3].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role === 'tank') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role === 'tank') {
+            updatedJobs[i].checked = true;
+          }
         }
       }
-    }
-    /*for any other scenario... obviously*/
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role === 'tank') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+
+
+    //   /*easy write, if all is on*/
+    //   if (filteredJobs.length === 19) {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].role !== 'tank') {
+    //         jobs[i].checked = false;
+    //       }
+    //     }
+    //   }
+    //   /*if all the tank jobs are on*/
+    //   else if (jobs[0].checked && jobs[1].checked && jobs[2].checked && jobs[3].checked) {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].role === 'tank') {
+    //         jobs[i].checked = false;
+    //       }
+    //     }
+    //   }
+    //   /*for any other scenario... obviously*/
+    //   else {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].role === 'tank') {
+    //         jobs[i].checked = true;
+    //       }
+    //     }
+    //   }
     filteredByJobs();
     console.log(filteredJobs)
+    // }
+
   }
 
 
@@ -138,7 +172,7 @@ function App() {
       }
     }
     else {
-      for (let i = 0; i < jobs.length;) {
+      for (let i = 0; i < jobs.length; i++) {
         if (jobs[i].role === 'DPS') {
           jobs[i].checked = true;
         }
