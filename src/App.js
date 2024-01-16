@@ -88,6 +88,7 @@ function App() {
             updatedJobs[i].checked = false;
           }
         }
+        return updatedJobs;
       }
       else {
         for (let i = 0; i < updatedJobs.length; i++) {
@@ -95,6 +96,7 @@ function App() {
             updatedJobs[i].checked = true;
           }
         }
+        return updatedJobs;
       }
     });
 
@@ -131,27 +133,41 @@ function App() {
 
 
   const filterHealer = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role !== 'healer') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role !== 'healer') {
+            updatedJobs[i].checked = false;
+          }
         }
-      }
-    }
-    else if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role === 'healer') {
-          jobs[i].checked = false;
-        }
-      }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role == 'healer') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+
+        return updatedJobs;
+      } // Return the updated state
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role !== 'healer') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role === 'healer') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role == 'healer') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs)
   }
