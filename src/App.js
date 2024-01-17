@@ -146,6 +146,21 @@ function App() {
 
         return updatedJobs;
       } // Return the updated state
+
+      else if (updatedJobs[15].checked && updatedJobs[16].checked && updatedJobs[17].checked && updatedJobs[18].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role === 'healer') {
+            updatedJobs[i].checked = false
+          }
+        }
+      }
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].role === 'healer') {
+            updatedJobs[i].checked = true;
+          }
+        }
+      }
     });
     // if (filteredJobs.length === 19) {
     //   for (let i = 0; i < jobs.length; i++) {
