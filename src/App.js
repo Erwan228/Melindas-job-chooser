@@ -160,6 +160,7 @@ function App() {
             updatedJobs[i].checked = true;
           }
         }
+        return updatedJobs;
       }
     });
     // if (filteredJobs.length === 19) {
@@ -188,157 +189,337 @@ function App() {
   }
 
   const filterDPS = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role !== 'DPS') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role !== 'DPS') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[4].checked && updatedJobs[5].checked && updatedJobs[6].checked && updatedJobs[7].checked && updatedJobs[8].checked && updatedJobs[9].checked && updatedJobs[10].checked && updatedJobs[11].checked && updatedJobs[12].checked && updatedJobs[13].checked && updatedJobs[14].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].role === 'DPS') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role === 'DPS') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].role === 'DPS') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].role === 'DPS') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role !== 'DPS') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role === 'DPS') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].role === 'DPS') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs);
   }
 
   const filterRegen = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role !== 'regen') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role !== 'regen') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[15].checked && updatedJobs[16].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'regen') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[15].checked && jobs[16].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'regen') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'regen') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'regen') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role !== 'regen') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[15].checked && jobs[16].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'regen') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'regen') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs);
   }
 
   const filterBarrier = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role !== 'barrier') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role !== 'barrier') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[17].checked && updatedJobs[18].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'barrier') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[17].checked && jobs[18].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'barrier') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'barrier') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'barrier') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role !== 'barrier') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[17].checked && jobs[18].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'barrier') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'barrier') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs);
   }
 
   const filterMelee = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role !== 'melee') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role !== 'melee') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[4].checked && updatedJobs[5].checked && updatedJobs[6].checked && updatedJobs[7].checked && updatedJobs[8].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'melee') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'melee') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'melee') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'melee') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    //   if (filteredJobs.length === 19) {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].sub_role !== 'melee') {
+    //         jobs[i].checked = false;
+    //       }
+    //     }
+    //   }
+    //   else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].sub_role === 'melee') {
+    //         jobs[i].checked = false;
+    //       }
+    //     }
+    //   }
+    //   else {
+    //     for (let i = 0; i < jobs.length; i++) {
+    //       if (jobs[i].sub_role === 'melee') {
+    //         jobs[i].checked = true;
+    //       }
+    //     }
+    //   }
     filteredByJobs();
     console.log(filteredJobs);
   }
 
   const filterRange = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role !== 'range') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role !== 'range') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[9].checked && updatedJobs[10].checked && updatedJobs[11].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'range') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'range') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'range') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'range') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role !== 'range') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'range') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'range') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs);
   }
 
   const filterMagic = () => {
-    if (filteredJobs.length === 19) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role !== 'magic') {
-          jobs[i].checked = false;
+    setFilteredJobs(prevJobs => {
+      // Create a shallow copy of the previous state
+      const updatedJobs = prevJobs.map(job => ({ ...job }));
+      if (filteredJobs.length === 19) {
+        // Your logic to update the jobs array based on the tank filter
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role !== 'magic') {
+            updatedJobs[i].checked = false;
+          }
+        }
+
+        return updatedJobs;
+      } // Return the updated state
+
+      else if (updatedJobs[12].checked && updatedJobs[13].checked && updatedJobs[14].checked) {
+        for (let i = 0; i < updatedJobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'magic') {
+            updatedJobs[i].checked = false
+          }
         }
       }
-    }
-    else if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'magic') {
-          jobs[i].checked = false;
+      else {
+        for (let i = 0; i < jobs.length; i++) {
+          if (updatedJobs[i].sub_role === 'magic') {
+            updatedJobs[i].checked = true;
+          }
         }
+        return updatedJobs;
       }
-    }
-    else {
-      for (let i = 0; i < jobs.length; i++) {
-        if (jobs[i].sub_role === 'magic') {
-          jobs[i].checked = true;
-        }
-      }
-    }
+    });
+    // if (filteredJobs.length === 19) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role !== 'magic') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'magic') {
+    //       jobs[i].checked = false;
+    //     }
+    //   }
+    // }
+    // else {
+    //   for (let i = 0; i < jobs.length; i++) {
+    //     if (jobs[i].sub_role === 'magic') {
+    //       jobs[i].checked = true;
+    //     }
+    //   }
+    // }
     filteredByJobs();
     console.log(filteredJobs)
   }
